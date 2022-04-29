@@ -1,0 +1,133 @@
+@font-face{
+    font-family: BlackJack;
+    src: url(../fonts/BLACKJAR.TTF);
+}
+:root {
+    --offWhite: #fcfcfc;
+    --mintGreen: #cfeacf;
+    --vividGreen: #44c767;
+    --offBlack: #111;
+}
+
+
+.header {
+    width: 100vw;
+    background-color: #e8f6ce;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    text-decoration: none;
+}
+
+.header div.left {
+    display: block; 
+    position: relative;
+    width: 100vw;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.header div.right{
+    display: flex; 
+    width: 100vw;
+    position: relative;
+    z-index: 2;
+}
+
+.header a{
+    text-decoration: none;
+    font-weight: 500;
+    flex: 14%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 8px 0px;
+    transition-duration: 0.3s;
+    background-color: var(--offWhite);
+    font-size: 12.5px;
+    font-weight: 900;
+    min-width: fit-content;
+}
+
+.header a:hover, .header a:active {
+    position: relative;
+    background-color: var(--mintGreen);
+    text-shadow:0px 1px 2px var(--vividGreen);
+}
+.header #active {
+    position: relative;
+    background-color: var(--mintGreen);
+    text-shadow:0px 1px 2px var(--vividGreen);
+}
+
+.header h1 {
+    font-family: 'BlackJack', sans-serif;
+    letter-spacing: 0px;
+    font-size: 36pt;
+    line-height: .8;
+    display:block;
+    font-weight: 300;
+}
+.header p {
+    display: inline-block;
+    font-size: 14.4px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--offBlack);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+#main {
+  transition: .5s;
+  padding: 16px;
+}
+
+/* For Large Screens */
+@media screen and (min-width: 600px) and (orientation: landscape) 
+{ 
+    .header {height: 100px;}
+    .header h1 {line-height: 1.1;}
+
+    .header a {
+        top: -70px;
+        padding: 80px 12px 8px 12px;
+        background-color: var(--offWhite);
+        transition-duration: 0.3s;
+        font-size: 16px;
+        font-weight: 500;
+        
+    }
+    .header a:hover, .header a:active {top:-50px; border-radius:10px;}
+    .header a.first{border-bottom-left-radius: 10px;}
+    .header a.last{border-bottom-right-radius: 10px;}
+    .header #active {top:-60px; border-radius:10px;}
+
+    .header div.left {
+        padding-top: 20px;
+        padding-left: 7%;
+        text-align: left;
+        
+    }
+
+    .header div.right{
+        display: block;
+        position: relative;
+        top: -110px;
+        height: 80px;
+        padding-top: 20px;
+        width: auto;
+        text-align: right;
+        margin-right: 4%;
+    
+    }
+}

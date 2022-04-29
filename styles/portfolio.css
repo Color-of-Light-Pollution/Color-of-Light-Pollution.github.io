@@ -1,0 +1,138 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    width: 100vw;
+    padding-top: 20px;
+    align-items: flex-start
+}
+
+/*THUMB SLIDES*/
+[role=shadowbox]{
+    position: relative;
+    width: 94vw;
+    height: 94vw;
+    min-width: 250px;
+    min-height: 250px;
+    margin: 8px 0;
+    display: block;   
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    background: #000;
+    background: linear-gradient(0deg, #000e 0%, #0002 100%);
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0.7;
+    padding: 8%;
+}
+.overlay h1{ font-size: 1.2em; font-weight: 600;}
+[role=shadowbox]:hover {cursor: pointer}
+[role=shadowbox]:hover .overlay{opacity: 1;}
+
+[hidden=TRUE] {display:none;}
+[hidden=FALSE] {display:block;}
+
+/*TAGS*/
+.tag {
+    background-color:#efefef;
+    border-radius: 5px;
+    border: none;
+    transition-duration: 0.2s;
+    color:#888888;
+    padding: 4px;
+    font-size: .8em;
+    margin: 2px;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.tag:hover, .tag[active=TRUE]{
+    background-color:#fff;
+    color: #0d8533;
+    text-shadow:0px 1px 1px #44c767;
+    cursor: pointer;
+}
+.tag:active {
+	position:relative;
+	top:1px;
+    cursor: pointer;
+}
+
+
+/*ARTBOX*/
+.artbox {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.art-content {
+    width: 100vw;
+    height: 120vh;
+    max-height: 135vw;
+    background-image: url(../portfolio/gallery/by_morning_light.PNG);
+    background-size: contain;
+    position: relative;
+    z-index:5;
+    
+}
+.art-info {
+    position: relative;
+    background: #eee;
+    color: #121212;
+    width: 100vw;
+    padding: 25px 10vw 35px 10vw;
+    z-index:0;
+    min-height: 20vh;
+    
+}
+#tags{
+    color:#666; 
+    font-size: 0.7em; 
+    margin-bottom:8px;
+}
+#date{
+    color:#222; 
+    font-size: 1em; 
+    margin-bottom: 4px;
+    float: right;
+    margin-top: -1.5em;
+}
+#title {
+    font-size: 1.5em;   
+}
+
+/* Responsive layout - normal */
+@media (min-width: 600px) and (orientation: landscape){
+     [role=shadowbox]{max-height: 500px; max-width: 500px; margin: 2px;}
+    .overlay{opacity: 0;}
+    .tag { font-weight: 400; font-size: .9em; padding: 8px;}
+}
+
+
+/* 2 col, 600-777px */
+@media (min-width: 600px) and (max-width: 777px) {
+    [role=shadowbox]{width: 48vw; height: 48vw; margin: 2px;}
+}
+
+/* 3 col, 777-1036px*/
+@media (min-width: 777px) and (max-width: 1036px){
+    [role=shadowbox]{width: 32vw; height: 32vw;}
+}
+
+/*4 col 1036+ */
+@media (min-width: 1036px){
+    [role=shadowbox]{width: 24vw; height: 24vw;}
+}
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+.sub {
+    font-size: 7pt;
+}
+
+.searchResult h3 {
+    padding-top:10px;
+    margin: 0;
+    font-weight: 800;
+    font-size: 15pt;
+}
+
+.searchStats {
+    font-size: 9pt;
+}
+
+
+.searchQuery {
+}
+
+.searchBox {
+    padding-bottom: 50px;
+}
+
+input {
+    display: inline-block;
+    background-color:#ffffff;
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    padding: 5px;
+    border: 3px solid #18ab29;
+    color: #0d8533;
+    font-weight: 700;
+    font-family: inherit;
+    
+}
+input:focus{
+    box-shadow: inset 0px 1px 3px #44c767, 0px 1px 2px #44c767;
+    background-color: #effffa;
+    outline: 0;
+}
+
+
+.submit {
+    width: auto;
+    border-radius: 10px;
+    font-size: 10pt;
+    padding: 5px;
+    line-height: normal;
+    letter-spacing: normal;
+    float: none;
+}
