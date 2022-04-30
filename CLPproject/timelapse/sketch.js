@@ -45,7 +45,6 @@ function setup() {
         return element !== '';
     });
 
-    
     //timer setup
     timer_wait = new Timer(WAIT);
 }
@@ -66,9 +65,16 @@ function draw() {
         textSize(180);
         text("44", 40, windowHeight-204);
         
-        //PM 
-        textSize(24);
-        text("Highest Pollutant:", 60, windowHeight-170);
+        //highest pollutant
+        textSize(21);
+        text(findHighestPollutant("1,1,2,1,1,2,246,74,5,1,1,0"), 60, windowHeight-170);
+        
+        //Lux
+        text("Lux: 100", 60, windowHeight-145);
+        
+        //Date & time
+        
+        //Weather
         
         timer_wait.reset();
         colorct++;

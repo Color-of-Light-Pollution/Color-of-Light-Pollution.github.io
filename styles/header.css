@@ -61,12 +61,12 @@
 }
 
 .header h1 {
-    font-family: 'BlackJack', sans-serif;
-    letter-spacing: 0px;
+/*    font-family: 'BlackJack', sans-serif;*/
+    letter-spacing: -0.3px;
     font-size: 36pt;
     line-height: .8;
     display:block;
-    font-weight: 300;
+    font-weight: 800;
 }
 .header p {
     display: inline-block;
