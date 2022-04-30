@@ -22,11 +22,10 @@
 body{
     width: 100vw;
     height: 100vh;
-    /*font-family: 'Source Sans Pro', sans-serif;*/
-    font-family: "Quicksand", "Open Sans", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     background-color: var(--springGreen);
     overflow-x: hidden;
-    letter-spacing: 0.3px;
+    letter-spacing: 0px;
 }
 
 /*All pages*/
