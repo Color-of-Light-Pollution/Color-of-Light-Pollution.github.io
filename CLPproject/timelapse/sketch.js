@@ -1,35 +1,24 @@
 /**
 	By Acelaena
-
-    Overview:
-    A simple color-picker game that makes use of p5.clickable and p5.timer. 
-    You have two seconds, get picking! 
-
-	Notes:
-    IMPORTANT NOTE:: PLEASE CLONE THE ENTIRE REPOSITORY 
-    - to save myself a little sanity, all classes are now in JS_Classes so I don't accidentally modify 
-    the wrong copy of the classes and continue scratching my head at why a bug still exists when I 
-    definitely fixed it. 
-    - i also modified p5.clickable and p5.timer. 
 */
 
 const BGCOL = '#2a2a2a';
 const WAIT = 1000;
+
+//data
 var data;
-var colorList;
+var dateList = [];
+var colorList = [];
+var pollList = [];
+var weatherList = [];
+var aqiList = []; 
 var colorct = 0;
-var TempList; 
 
 
-//game handlers
+//animation handlers
 var timer_wait;
 var newSlide = true;
 
-
-
-/**
-    Keyboard navigation support. 
-*/
 
 function setup() {
     //remove scrollbar width because p5 smelly and I cant do my elegant no-scrollbar trick
@@ -40,10 +29,23 @@ function setup() {
     //constant setup
     textSize(24);
     textFont("Source Sans Pro");
+
+    //get data
     data = document.getElementById("csv").innerHTML.trim().split("\n");
-    colorList = data.filter(element => {
+    data = data.filter(element => {
         return element !== '';
     });
+    
+    var dataSplit;
+    for (var i = 0; i < data.length; i++){
+        dataSplit = data[i].split (", ");
+        dateList.push(dataSplit[0]);
+        colorList.push(dataSplit[1]);
+        pollList.push(dataSplit[2]);
+        weatherList.push(dataSplit[3]);
+        aqiList.push(dataSplit[4]);
+    }
+    
 
     //timer setup
     timer_wait = new Timer(WAIT);
@@ -63,18 +65,17 @@ function draw() {
         textSize(24);
         text("AQI", 60, windowHeight-330);
         textSize(180);
-        text("44", 40, windowHeight-204);
+        text(aqiList[colorct], 40, windowHeight-204);
         
         //highest pollutant
         textSize(21);
-        text(findHighestPollutant("1,1,2,1,1,2,246,74,5,1,1,0"), 60, windowHeight-170);
+        print(pollList[colorct]);
+        text(findHighestPollutant(pollList[colorct]), 60, windowHeight-170);
         
-        //Lux
-        text("Lux: 100", 60, windowHeight-145);
-        
-        //Date & time
-        
-        //Weather
+        //Date & time & weather
+        print(dateList[colorct]);
+        text(datetimeParse(dateList[colorct]) + " | " + weatherList[colorct], 60, windowHeight-145);
+                
         
         timer_wait.reset();
         colorct++;
