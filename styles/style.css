@@ -1,10 +1,10 @@
 :root {
-    --offWhite: #fcfcfc;    /* var(--offWhite)*/
-    --mintGreen: #cfeacf; /* var(--mintGreen)*/
+    --offWhite: #f2f2f2;    /* var(--offWhite)*/
+    --mintGreen: #aad6fc; /* var(--mintGreen)*/
     --springGreen: #e8f6ce; /* var(--springGreen)*/
-    --vividGreen: #44c767; /* var(--vividGreen)*/
-    --mediumGreen: #18ab29; /* var(--mediumGreen)*/
-    --deepGreen: #0d8533; /* var(--deepGreen)*/
+    --vividBlue: #28a3dc; /* var(--vividBlue)*/
+    --mediumBlue: #326878; /* var(--mediumBlue)*/
+    --deepBlue: #29506B; /* var(--deepBlue)*/
     --shadowGray: #373a45cc; /* var(--shadowGray)*/
     --offBlack: #111;
 }
@@ -23,23 +23,35 @@ body{
     width: 100vw;
     height: 100vh;
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: var(--springGreen);
+    font-weight: 300;
+    background-color: var(--offWhite);
     overflow-x: hidden;
     letter-spacing: 0px;
+    color: var(--deepBlue);
+}
+canvas {
+  display: block;
+  margin: auto;
 }
 
 /*All pages*/
-a {color: var(--mediumGreen); transition-duration: 0.3s;}
-a.quiet {color: var(--deepGreen);text-decoration: none; transition-duration: 0.3s;}
-a:hover {text-shadow:0px 1px 2px var(--vividGreen); cursor: pointer;}
+a {color: var(--mediumBlue); transition-duration: 0.3s;}
+a.quiet {text-decoration: none;}
+a:hover {text-shadow:0px 1px 2px var(--vividBlue); cursor: pointer;}
 sub {line-height: 0; font-weight: 200}
-h1 {font-size: 32px;}
-p.caption{text-indent: 1.2em; line-height: 1; margin-bottom: 1em;}
+h1 {font-size: 42px;}
+p {font-size: 14px; line-height: 1.45}
+p.caption{font-size: 16px;text-indent: 1.2em; line-height: 1; margin-bottom: 1em;}
 p.body{text-indent: 2em; line-height: 1.45; margin-bottom: 1em;}
-h2 {font-size: 18px; font-weight: 200; margin-bottom: 14px;}
-h2.title {font-size: 24px; font-weight: 600; margin-bottom: 14px; text-align: left;}
-h3 {font-size: 18px;font-weight: 600;margin: 10px;}
-li {padding-bottom:14px;}
+p.main{font-size: 15.5px}
+h2 {font-size: 24px; font-weight: 200; margin-bottom: 14px; letter-spacing: 1px;}
+h2.title {font-size: 26px; font-weight: 800; margin-bottom: 14px; text-align: left;}
+h3 {font-size: 18px;font-weight: 600; margin: 10px;}
+li {font-size: 14px; padding-bottom:8px; line-height: 1.45;}
+h5 {font-size: 22px; font-weight: 400;
+    
+}
+
 
 .container {
     padding: 6vh 5vw;    
@@ -79,12 +91,17 @@ footer{
     padding: 20px 50px 40px;
     width: 100vw;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 200;
     border-top: solid 1px;
-    border-color: var(--mediumGreen);
+    border-color: var(--mediumBlue);
     background-color: var(--mintGreen);
-    margin-top: 50px;
 }
+footer h3 {
+    letter-spacing: 3px;
+    font-size: 20px; 
+}  
+
 
 
 
@@ -99,20 +116,20 @@ footer{
     background-color: white;
     position: relative;
     border-radius: 100px;
-    border: 3px solid var(--mediumGreen);
+    border: 3px solid var(--mediumBlue);
     transition-duration: 0.2s;
-    color: var(--deepGreen);
+    color: var(--deepBlue);
     padding: 16px;
     float: right;
     letter-spacing: 1.5px;
     font-family: inherit;
     font-weight: 500;
     font-size: 18px;
-    text-shadow:0px 1px 2px var(--vividGreen);
+    text-shadow:0px 1px 2px var(--vividBlue);
     line-height: 0;
     cursor: pointer;
 }
-.button:hover { background-color: var(--vividGreen); color: white; }
+.button:hover { background-color: var(--vividBlue); color: white; }
 .button:active { position:relative; top:1px; }
 
 .tooltip {
@@ -236,7 +253,8 @@ div.polaroid-tab {
 ul li{
     padding-bottom: 0.3em;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.45;
+    margin-right: 12vw
 }
 
 ul {

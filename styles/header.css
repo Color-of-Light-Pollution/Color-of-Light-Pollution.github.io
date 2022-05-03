@@ -4,8 +4,7 @@
 }
 :root {
     --offWhite: #fcfcfc;
-    --mintGreen: #cfeacf;
-    --vividGreen: #44c767;
+/*    --mintGreen: #cfeacf;*/
     --offBlack: #111;
 }
 
@@ -52,12 +51,12 @@
 .header a:hover, .header a:active {
     position: relative;
     background-color: var(--mintGreen);
-    text-shadow:0px 1px 2px var(--vividGreen);
+    text-shadow:0px 1px 2px var(--vividBlue);
 }
 .header #active {
     position: relative;
     background-color: var(--mintGreen);
-    text-shadow:0px 1px 2px var(--vividGreen);
+    text-shadow:0px 1px 2px var(--vividBlue);
 }
 
 .header h1 {

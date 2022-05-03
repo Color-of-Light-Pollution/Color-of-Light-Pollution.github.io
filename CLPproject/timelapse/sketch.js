@@ -22,7 +22,8 @@ var newSlide = true;
 
 function setup() {
     //remove scrollbar width because p5 smelly and I cant do my elegant no-scrollbar trick
-    createCanvas(windowWidth, windowHeight-104);
+    let canvas = createCanvas(windowWidth, windowHeight-104);
+    canvas.parent('sketch-container');
     background(BGCOL);
     frameRate(20);
     

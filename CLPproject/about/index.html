@@ -11,16 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176116249-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-176116249-1');
-</script>
-    
     
     
 <title>Color of Light &amp; Pollution -- About</title>
@@ -42,12 +32,13 @@
         <a href="../" class="first" >
         Home</a><a href="../about/">
         About</a><a href="../timelapse/" >
-        Timelapse</a><a href="../data/" class="last">
-        Data</a>
+        Timelapse</a><a href="../data/">
+        Data</a><a href="../team/" class="last">
+        Team</a>
     </div>    
 </header>
 <!--END HEADER -->
-<div class="container" style="letter-spacing: normal; line-height: 1.32; padding: 4% 10%">
+<div class="container" style="letter-spacing: normal; padding: 4% 10%">
     <div class="column-wide">
         
     <h1 style="text-align: center">Color of Light and Pollution
@@ -57,6 +48,78 @@
 
         <br>
         <br>
+        
+        <h2 class ="title" id="motivation"> Motivation </h2>
+        <p class="body"> Due to the frequency of wildfires and pollution, air quality is a massive concern for the general population, leading many to turn to several sites for AQI updates on their location, especially when the air is visibly murky. This project's purpose is to serve as a visualization of the color of light based on pollution, synthesizing data we gathered through our sensors and publicly available on the web into graphics illustrating the effect pollution has on our skies. 
+        </p>
+        
+        <h2 class="title" id="specs">Specs</h2>
+        <h3>Hardware</h3>
+        <p class="body" style="margin-bottom: 5px"><b> <a href="https://www.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X/ref=sr_1_3?crid=2BR3IL3OIWK7Q&keywords=raspberry+pi+4b&qid=1651568829&sprefix=raspberry+pi+4b%2Caps%2C160&sr=8-3">Raspberry Pi 4b</a> | <a href="https://www.adafruit.com/product/4632">Adafruit Air Quality Breakout Sensor</a> | <a href="https://www.adafruit.com/product/4681">Adafruit Light Sensor</a> | <a href="https://www.adafruit.com/product/4561">Adafruit Raspberry Pi HQ Camera</a></b></p>
+        <p class="body">A Raspberry Pi 4 model B runs all of our hardware components, which were selected to work specifically with this model of Raspberry Pi. Here is how each component is connected and operated:</p>
+        <ol>
+        <li><b>Pollution Sensor</b> 
+            <ul>
+                <li>The pollution sensor is the blue box at the top of the bread board. It connects over via I2C wired connection. There are four connections: ground, power, data and clock. The ground and power complete the circuit that powers the system. The clock connection ensures that the sensor operation is synchronized with the raspberry pi and the data connection allows the sensor and raspberry pi to send information back and forth. I2C connections can be multiplexed – which essentially means that multiple components can be operated through the same data and clock connections. The pollution and ambient light sensors share a multiplexed connection to the pi.</li>
+            </ul>
+        </li>
+        <li><b>Ambient Light Sensor</b>
+            <ul>
+                <li>The ambient light sensor is connected to the pi and operated the same as the pollution sensor.</li>
+            </ul>
+        </li>
+        <li><b>Camera</b>
+            <ul>
+                <li>The camera is connected to the pi via a ribbon connector (the wide, tape-looking thing). It is actually made by the raspberry pi foundation and doesn’t require any special software. A picture can be taken using the raspistill command</li>
+            </ul>
+        </li>
+        
+        </ol>
+        <p class="body">
+        An image of our hardware setup (without the enclosure box): 
+            <img src="../../images/hardware.JPG" style="width: 60vw; display: block">
+        </p>
+        
+        
+        <h3>Software</h3>
+        <p class="body">Our software and scripts can all be found on our <a href="https://github.com/Color-of-Light-Pollution">Github</a>.
+        </p>
+        <ol>
+        <li><b>Web Scraper</b>
+            <ul>
+                <li>The web scraper collects data from Weather.com on the city of choice, and saves it in a CSV. It's written in Java and mainly makes use of the Jsoup library to parse and traverse the requested webpage HTML.</li>
+            </ul>
+        </li>
+            
+        <li><b>Sensor Script</b>
+            <ul>
+                <li>Our sensor script is an incredibly simple script in CircuitPython that calls the relevant methods for the sensors to capture data and store it as a CSV. </li>
+            </ul>
+        </li>
+        
+        <li><b>Database</b>
+            <ul>
+                <li>Our database is a PostgreSQL database that runs on the AWS cloud. It updates with data collected from the pi setup daily at midnight.  </li>
+            </ul>
+        </li>
+        
+        <li><b>Animation</b>
+            <ul>
+                <li>The animation seen on our Timelapse page runs on P5.js, and creates a visual display of the most relevant points of data our project has collected.</li>
+            </ul>
+        </li>
+        </ol>
+        <h3>Data Analysis</h3>
+        <p class="body">explanation of the data analysis process, what was analyzed, meaningful or not conclusions</p>
+        
+        <h2 class="title">Terminology</h2>
+
+        <ul>
+            <li>AQI: Air quality index. A composite score of five different pollutants that grades how healthy the air is. For more information on how AQI is rated, see <a href="https://www.airnow.gov/aqi/aqi-basics/"> this website.</a></li>
+            <li>PM1/2.5/10.. etc: Particulate matter smaller than the specified number of microns. </li>
+            <li>I2C: inter-integrated circuit</li>
+            <li>AWS: Amazon Web Services. </li>
+        </ul>
         
         <h2 class="title">Team</h2>
         <p>
@@ -73,51 +136,24 @@
         
         <br>
         <br>
-        
-        <h2 class="title">Project Overview</h2>
-        <p class="body">This project is....</p>
-        <h3>Use &amp; Derivative Works</h3>
-        <p class="body">This project is open source under the [...] license</p>
-        
-        <br>
-        <br>
-        
-        <h2 class="title">Project Specs</h2>
-        <h3>Hardware Build</h3>
-        <p class="body">explanation of the hardware, link to parts purchased</p>
-        <h3>Software Build</h3>
-        <p class="body">Our software build consists of two major portions, a script that runs our sensors, and a script that collects data from the internet. Both are tied together with another script that runs both at regular intervals to collect data, and finally a script that runs daily to upload all the collected data to the database.
-        </p>
-        <ol>
-        <li>Web Scraper
-            <ul>
-                <li>The web scraper collects data from Weather.com on the city of choice, and saves it in a CSV. It's written in Java and mainly makes use of the Jsoup library to parse and traverse the requested webpage HTML.</li>
-            </ul>
-        </li>
-            
-        <li>Sensor Script</li>
-        
-        <li>The artist will finish works at their own pace. If a deadline is to be met, a rush fee may be charged.</li>
-        
-        <li>All references should be provided at time of order. Inadequate references may be subject to additional charges.</li>
-        
-        <li>Two edits will be allowed during the sketch phase. Edits after the sketch has been confirmed is up to the artist's discretion, and may be charged depending on how much needs to be changed. No edits will be done after the artwork is complete. </li>
-        </ol>
-        <h3>Data Analysis</h3>
-        <p class="body">explanation of the data analysis process, what was analyzed, meaningful or not conclusions</p>
-        
-        <h2 class="title">Terminology</h2>
-
-        <p class="body">Acronyms and terms and their explanations</p>
-        
-        
     </div>
 
 
 
 </div>
 <footer>
-©2020-2022 Acelaena. | Site designed and coded by Acelaena. | Contact: <a href="mailto:gildedserpentdesigns+info@gmail.com">Email</a>
-</footer>
+        <div class="foot">
+            <h3>Color of Light &amp; Pollution</h3>
+            <a> <a href="../"> Home</a></a>
+            <a> | </a>
+            <a> <a href ="../about/"> About</a></a>
+            <a> | </a>
+            <a> <a href ="../timelapse/"> Timelapse</a></a>
+            <a> | </a>
+            <a> <a href ="../data/"> Data</a></a>
+            <a> | </a>
+            <a> <a href ="../team/"> Team</a></a> 
+        </div> 
+    </footer>
 </body>
 </html>
