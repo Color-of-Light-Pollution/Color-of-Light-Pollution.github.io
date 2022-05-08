@@ -1,5 +1,5 @@
-copy webdata from '';
-copy sensordata from '';
+\copy webdata from 'WebData.csv' with DELIMITER ',';
+\copy sensordata from 'SensorData.csv' with DELIMITER ',';
 /*copy cameradata from '';*/
 
 
