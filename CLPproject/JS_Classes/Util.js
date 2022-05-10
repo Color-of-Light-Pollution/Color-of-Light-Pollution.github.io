@@ -95,3 +95,25 @@ function datetimeParse(aa){
     return monthstr + " " + day +", " + year +" | " + hour+ampm;
     
 }
+
+function colorParser(aa) {
+    var colorsplit = aa.split(",");
+    var r = parseInt(colorsplit[0],10).toString(16);
+    var g = parseInt(colorsplit[1],10).toString(16);
+    var b = parseInt(colorsplit[2],10).toString(16);
+    
+    if (r.length < 2){
+    r = "0" + r;
+    }
+    if (g.length < 2){
+    g = "0" + g;
+    }
+    if (b.length < 2){
+    b = "0" + b;
+    }
+    
+    var result = "#"+r+g+b
+    console.log(result);
+    return "#"+r+g+b;
+    
+}

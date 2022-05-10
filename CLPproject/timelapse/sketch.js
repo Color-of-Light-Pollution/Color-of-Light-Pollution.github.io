@@ -60,7 +60,7 @@ function draw() {
     if (newSlide){
         //bg color loop
         if (colorct == colorList.length){colorct = 0;}
-        background(colorList[colorct]);
+        background(colorParser(colorList[colorct]));
         
         //AQI
         textSize(24);
